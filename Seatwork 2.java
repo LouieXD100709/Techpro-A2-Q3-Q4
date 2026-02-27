@@ -1,45 +1,82 @@
-Seatwork 2
+Seatwork 3
 
-class Product {
-    private String productName;
-    private double price;
-    private int quantity;
+class Animal {
+    private String name;
+    private int age;
 
-    
-    public Product(String productName, double price, int quantity) {
-        this.productName = productName;
-        this.price = price;
-        this.quantity = quantity;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    
-    public String getProductName() {
-        return productName;
+    public void setAge(int age) {
+        this.age = age;
     }
 
-    public double getPrice() {
-        return price;
+    public String getName() {
+        return name;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public int getAge() {
+        return age;
     }
 
-    
-    public double getTotalAmount() {
-        return price * quantity;
+    void sound() {
+        System.out.println("Some generic animal sound");
+    }
+
+    void sound(int times) {
+        for (int i = 0; i < times; i++) {
+            sound();
+        }
     }
 }
 
-public class Main {
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Bark bark!");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Meow meow!");
+    }
+}
+
+class Cow extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Moo moo!");
+    }
+}
+
+public class seatwork3 {
     public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.setName("Buddy");
+        dog.setAge(3);
 
-        Product p = new Product("Gaming Mouse", 1500.5, 3);
+        Cat cat = new Cat();
+        cat.setName("Kitty");
+        cat.setAge(2);
 
-        System.out.println("2nd sem Seat work no. 2\n");
-        System.out.println("Product Name: " + p.getProductName());
-        System.out.println("Price: " + p.getPrice());
-        System.out.println("Quantity: " + p.getQuantity());
-        System.out.println("Total Amount: " + p.getTotalAmount());
+        Cow cow = new Cow();
+        cow.setName("Bessie");
+        cow.setAge(5);
+
+
+        System.out.println(dog.getName() + " says: ");
+        dog.sound();
+        dog.sound(3);
+
+        System.out.println(cat.getName() + " says: ");
+        cat.sound();
+        cat.sound(2);
+
+        System.out.println(cow.getName() + " says: ");
+        cow.sound();
+        cow.sound(4);
     }
 }
